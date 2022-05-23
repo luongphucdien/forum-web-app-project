@@ -1,11 +1,13 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Nav from "../nav/nav";
 import Home from "../pages/home/home";
 import SignIn from "../pages/sign in/sign in";
 
 export default function MainRoutes() {
     return (
         <BrowserRouter>
+            <Nav/>
             <div>
                 <Routes>
                     <Route path="/" element={<Home/>} />
