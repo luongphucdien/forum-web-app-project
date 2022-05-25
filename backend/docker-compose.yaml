@@ -1,0 +1,14 @@
+version: '3.8'
+volumes:
+ dbdata:
+
+services:
+ mysql:
+  image: mysql:8
+  container_name: mysql
+  restart: always
+  environment:
+    - MYSQL_ROOT_PASSWORD=secret
+    - MYSQL_DATABASE=forum
+  ports:
+    - "3366:3306"
