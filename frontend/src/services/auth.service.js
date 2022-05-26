@@ -9,9 +9,9 @@ export const signin = (username, password) => {
     };
     return axios.post(URL + '/sign-in', signinInfo).then(res => {
         if (res.data.accessToken) {
-            localStorage.setItem('user', JSON.stringify(res.data));
+            localStorage.setItem('user', res.data.username);
+            localStorage.setItem('token', res.data.accessToken);
         }
-        return res.data;
     });
 };
 
@@ -21,10 +21,10 @@ export const signout = () => {
 };
 
 
-export const signup = (username, email, password) => {
+export const signup = (name, username, password) => {
     const signupInfo = {
+        name,
         username,
-        email,
         password
     };
     return axios.post(URL + '/sign-up', signupInfo);

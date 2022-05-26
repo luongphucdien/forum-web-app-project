@@ -4,17 +4,15 @@ const bcrypt = require('bcryptjs');
 const { connection } = require('../config/db.config');
 
 exports.signup = (req, res) => {
-    const signupInfo = {
-        username: req.body.username,
-        email: req.body.email,
-        password: bcrypt.hashSync(req.body.password, 8)
-    };
+    const name = req.body.name;
+    const username = req.body.username;
+    const password = bcrypt.hashSync(req.body.password, 8);
 
     // Query to add user to db
     var query = '';
     connection.query(query, (error, result) => {
         if (error) throw error;
-        console.log(result);
+        res.status(200).send({ message: 'New user added!' });
     });
 };
 
@@ -38,12 +36,13 @@ exports.signin = (req, res) => {
         };
 
         const id = result[0].id;
+        const username = result[0].username;
         const token = jwt.sign({ id: id }, config.secret, {
             expiresIn: 86400 // 24 hours
         });
 
         res.status(200).send({
-            id: id,
+            username: username,
             accessToken: token
         });
     });

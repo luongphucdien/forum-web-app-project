@@ -9,14 +9,6 @@ const checkDuplicate = (req, res, next) => {
             return res.status(400).send({message: 'Username is already in use!'});
     });
 
-    // Query to find email
-    query = 'select email from users where username =' + '"' + req.body.email + '"';
-    connection.query(query, (error, result) => {
-        if (error) throw error;
-        if (result)
-            return res.status(400).send({message: 'Email is already in use!'});
-    });
-
     next();
 };
 

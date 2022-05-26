@@ -1,11 +1,8 @@
-import axios from 'axios';
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { signin } from '../../services/auth.service';
 
 
 export default function SignIn() {
-    const navigate = useNavigate();
     const [username, setUsername] = useState(null);
     const [password, setPassword] = useState(null);
 
@@ -13,10 +10,6 @@ export default function SignIn() {
         e.preventDefault();
         signin(username, password);
     }
-
-    const test = () => {
-        navigate('/');
-    };
 
     return (
         <div className='d-flex mt-5'>

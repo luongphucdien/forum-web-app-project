@@ -1,7 +1,21 @@
+const { connection } = require("../config/db.config");
+
 exports.publicContent = (req, res) => {
-    res.status(200).send('Public content');
+    // Query to fetch all threads
+    var query = '';
+    connection.query(query, (error, result) => {
+        if (error) throw error;
+        return res.status(200).send(result);
+    });
 };
 
 exports.userContent = (req, res) => {
-    res.status(200).send('User content');
+    const id = req.body.id;
+
+    // Query to fetch threads based on user id here'
+    var query = '';
+    connection.query(query, (error, result) => {
+        if (error) throw error;
+        return res.status(200).send(result);
+    });
 };

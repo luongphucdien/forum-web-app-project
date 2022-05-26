@@ -11,7 +11,7 @@ module.exports = (app) => {
         next()
     });
 
-    app.post('/auth/sign-up', [verifySignup.checkDuplicate], controller.signup);
+    app.post('/auth/sign-up', verifySignup.checkDuplicate, controller.signup);
 
     app.post('/auth/sign-in', controller.signin);
 };
