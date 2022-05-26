@@ -21,7 +21,7 @@ export default function SignIn() {
     return (
         <div className='d-flex mt-5'>
             <div className='m-auto col-10 col-md-5 p-3'>
-                <form onSubmit={test} method='post'>
+                <form onSubmit={handleSignIn} method='post'>
                     <h2 className='text-center mb-4'>Sign in</h2>
 
                     <div className='mb-3 form-floating'>

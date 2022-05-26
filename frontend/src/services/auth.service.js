@@ -1,5 +1,5 @@
 import axios from "axios";
-const URL = '/auth';
+const URL = 'http://localhost:8080/auth';
 
 
 export const signin = (username, password) => {
