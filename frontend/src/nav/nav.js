@@ -1,35 +1,29 @@
-import React from "react";
+import { NavLink } from 'react-router-dom'
+import styles from './nav.module.css'
 
 
-export default function Nav() {
-    return (
-        <nav className="navbar navbar-expand-sm bg-light">
-            <div className="container-fluid">
-                <a className="navbar-brand" href="/">Forum</a>
-
-                <button 
-                    className="navbar-toggler" 
-                    type="button" 
-                    data-bs-toggle="collapse" 
-                    data-bs-target="#navbarNav" 
-                    aria-controls="navbarNav" 
-                    aria-expanded="false" 
-                    aria-label="Toggle navigation"
-                >
-                    <span className="navbar-toggler-icon"></span>
-                </button>
-
-                <div className="collapse navbar-collapse justify-content-between mt-3 mt-sm-0" id="navbarNav">
-                    <form className="d-flex flex-fill justify-content-center" role={'search'}>
-                        <input className="form-control me-2 w-75" type={'search'} placeholder='Search' aria-label="Search"/>
-                        <input className="btn btn-outline-success" type={'submit'}/>
-                    </form>
-                    <ul className="navbar-nav">
-                        <li className="nav-item"> <a className="nav-link" href="/sign-in">Sign In</a> </li>
-                        <li className="nav-item"> <a className="nav-link" href="/sign-up">Sign Up</a> </li>
-                    </ul>
+// Note: Need to add link to redirect to home when clicking on navbar brand
+function Nav() {
+    return(
+        <div>
+            <nav className={styles.navbar}>
+                <div className={styles.logo}>
+                    <img src="https://cdn-icons-png.flaticon.com/512/1054/1054861.png" alt="logo" className={styles['logo__img']} />
+                    <p className={styles['logo__brand']}>CIRCUS</p>
                 </div>
-            </div>
-        </nav>
-    );
+
+                <div className={styles.search}>
+                    <i className={'fa-solid fa-magnifying-glass ' + styles['search__btn']}></i>
+                    <input type="text" placeholder='Search...' className={styles['search__input']} />
+                </div>
+
+                <div className={styles.account}>
+                    <NavLink to="/sign-in" className={styles['account__login']}>Log In</NavLink>
+                    <NavLink to="/register" className={styles['account__register']}>Sign Up</NavLink>
+                </div>
+            </nav>
+        </div>
+    )
 }
+
+export default Nav

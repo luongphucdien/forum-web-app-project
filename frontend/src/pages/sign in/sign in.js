@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { signin } from '../../services/auth.service';
 
 
 export default function SignIn() {
@@ -10,14 +11,7 @@ export default function SignIn() {
 
     const handleSignIn = (e) => {
         e.preventDefault();
-        const info = {
-            username: username,
-            password: password
-        };
-
-        axios.post('/authenticate', info).then(res => {
-            navigate('/');
-        });
+        signin(username, password);
     }
 
     const test = () => {
