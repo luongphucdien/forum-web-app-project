@@ -13,7 +13,7 @@ function Register() {
     const useValidate = (event) => {
         event.preventDefault();
         signup(name, username, password).then(() => {
-            navigate('/sign-in');
+            navigate('/login');
         });
     }
 

@@ -13,4 +13,8 @@ module.exports = (app) => {
     app.get('/content/public', controller.publicContent);
 
     app.get('/content/user', authJWT.verifyToken, controller.userContent);
+
+    app.get('/content/auth', authJWT.verifyToken, controller.authenticate);
+
+    app.post('/content/post', controller.post);
 };

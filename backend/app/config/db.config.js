@@ -31,10 +31,10 @@ exports.initiate = () => {
 
     // Initiate threads table
     query = 'create table if not exists threads('
-            +   'thread_id int not null primary key,'
+            +   'thread_id int not null primary key auto_increment,'
             +   'content varchar(1000) not null,'
             +   'username varchar(30) not null,'                  
-            +   'created_date varchar(30) not null,'                     // Fix later
+            +   'created_date varchar(30),'                     // Fix later
             +   'foreign key (username) references users(username)'
             +   ')';
     connection.query(query, (error, result) => {
