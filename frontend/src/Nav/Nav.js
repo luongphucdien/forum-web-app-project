@@ -2,6 +2,7 @@ import { NavLink } from 'react-router-dom'
 import styles from './nav.module.css'
 
 
+
 // Note: Need to add link to redirect to home when clicking on navbar brand
 export default function Nav() {
     return(

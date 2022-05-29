@@ -8,7 +8,6 @@ function Register() {
     const [name, setName] = useState('')
     const [password, setPassword] = useState('')
     const navigate = useNavigate()
-
     const useValidate = (event) => {
         event.preventDefault();
         console.log(name, password);
