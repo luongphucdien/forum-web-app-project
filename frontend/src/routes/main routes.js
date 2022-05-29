@@ -14,8 +14,8 @@ export default function MainRoutes() {
             <div>
                 <Routes>
                     <Route path="/" element={<Home/>} />
-                    <Route path="/login" element={<PrivateRoute Component={SignIn}/>} />
-                    <Route path="/register" element={<PrivateRoute Component={Register}/>} />
+                    <Route path="/login" element={<SignIn/>} />
+                    <Route path="/register" element={<Register/>} />
                     <Route path="/creatingpost" element={<PrivateRoute Component={Post}/>} />
                 </Routes>
             </div>

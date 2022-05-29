@@ -6,10 +6,9 @@ const URL = 'http://localhost:8080';
 export const post = (post) => {
     const postInfo = {
         username: getCurrentUser(),
-        post
+        post: post
     };
     return axios.post(URL + '/post', postInfo).then(res => {
         console.log(postInfo.username)
-
     });
 };
