@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Nav from "../Nav/Nav";
+import Nav from "../nav/Nav";
 import Home from "../pages/home/home";
 import SignIn from "../pages/sign in/sign in";
 
