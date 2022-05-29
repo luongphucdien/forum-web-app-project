@@ -40,10 +40,10 @@ exports.post = (req, res) => {
     const username = req.body.username;
     const post = req.body.post;
     
-    var query = "INSERT INTO thread (content, username) VALUES ('"+ post +"', '" + username + "')";
+    var query = "INSERT INTO threads (content, username) VALUES ('"+ post +"', '" + username + "')";
     connection.query(query, (error, result) => {
         if (error) throw error;
         return res.status(200).send(result);
     });
-    console.log(id, post);
+    console.log(username, post);
 };
