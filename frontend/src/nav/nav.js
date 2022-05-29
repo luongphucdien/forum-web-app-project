@@ -3,7 +3,7 @@ import styles from './nav.module.css'
 
 
 // Note: Need to add link to redirect to home when clicking on navbar brand
-function Nav() {
+export default function Nav() {
     return(
         <div>
             <nav className={styles.navbar}>

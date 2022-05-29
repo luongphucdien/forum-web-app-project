@@ -1,6 +1,7 @@
 import styles from './register.module.css';
 import {NavLink, useNavigate} from 'react-router-dom';
 import {useState} from 'react'
+import { signup } from '../../services/auth.service';
 
 
 function Register() {
@@ -12,6 +13,7 @@ function Register() {
         event.preventDefault();
         console.log(name, password);
         // Add auth service here when backend is done
+        signup(name, 'test', password);
     }
 
     return (

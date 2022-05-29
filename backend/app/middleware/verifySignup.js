@@ -1,4 +1,4 @@
-const connection =  require("../config/db.config");
+const { connection } =  require("../config/db.config");
 
 const checkDuplicate = (req, res, next) => {
     // Query to find username
