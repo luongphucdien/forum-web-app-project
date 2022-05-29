@@ -24,9 +24,15 @@ export default function Nav() {
                     <input type="text" placeholder='Search...' className={styles['search__input']} />
                 </div>
 
-                <div className={styles.account} style={{ display: token ? 'none' : 'block' }}>
-                    <NavLink to="/login" className={styles['account__login']}>Log In</NavLink>
-                    <NavLink to="/register" className={styles['account__register']}>Sign Up</NavLink>
+                <div>
+                    <div className={styles.account} style={{ display: token ? 'none' : 'flex' }}>
+                        <NavLink to="/login" className={styles['account__login']}>Log In</NavLink>
+                        <NavLink to="/register" className={styles['account__register']}>Sign Up</NavLink>
+                    </div>
+                    <div className={styles.account} style={{display: token ? 'flex' : 'none'}}> 
+                        <NavLink to ="/login" className={styles['account__login']}>Log Out</NavLink>
+                    </div>
+
                 </div>
             </nav>
         </div>
