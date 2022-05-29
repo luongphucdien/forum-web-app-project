@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { signin } from '../../services/auth.service';
-
+import styles from './signin.module.css'
 
 export default function SignIn() {
     const [username, setUsername] = useState(null);
@@ -12,46 +12,25 @@ export default function SignIn() {
     }
 
     return (
-        <div className='d-flex mt-5'>
-            <div className='m-auto col-10 col-md-5 p-3'>
-                <form onSubmit={handleSignIn} method='post'>
-                    <h2 className='text-center mb-4'>Sign in</h2>
+        <div className={styles.main}>
+            <form action="" method="POST" className={styles.form} id="form-1" autoComplete='off' onSubmit={handleSignIn}>
+                <h2 className={styles.heading}>Log in</h2>
+                <p className={styles.desc}>WELCOME TO CIRCUS</p>
+            
+            <div className={styles.spacer}></div>
 
-                    <div className='mb-3 form-floating'>
-                        <input 
-                            type={'text'} 
-                            className='form-control' 
-                            id='username' 
-                            name='username' 
-                            placeholder='test'
-                            onChange={e => {setUsername(e.target.value)}}
-                            required
-                        />
-                        <label htmlFor='username'>Username</label>
-                    </div>
-
-                    <div className='mb-5 form-floating'>
-                        <input 
-                            type={'password'} 
-                            className='form-control' 
-                            id='password' 
-                            name='password' 
-                            placeholder='test'
-                            onChange={e => setPassword(e.target.value)}
-                            required
-                        />
-                        <label htmlFor='password'>Password</label>
-                    </div>
-
-                    <div className='text-center'>
-                        <input 
-                            type={'submit'} 
-                            className='btn btn-primary btn-lg col-7' 
-                            value={'Sign In'}
-                        />
-                    </div>
-                </form>
+            <div className={styles['form-group']}>
+                <label htmlFor="username" className={styles['form-label']}>Username</label>
+                <input value={username} onChange={(e) => setUsername(e.target.value)}id="username" type="text" name="fullname" placeholder="Ex: Happy Clown" className={styles['form-control']} required />
             </div>
+
+            <div className={styles['form-group']}>
+                <label htmlFor="password" className={styles['form-label']}>Password</label>
+                <input value={password} onChange={(e) => setPassword(e.target.value)} id="password" type="password" name="password" placeholder="Enter your password" className={styles['form-control']} required />
+            </div>
+
+            <button className={styles['form-submit']} onSubmit={handleSignIn}>Log in</button> 
+            </form>
         </div>
     );
 }
