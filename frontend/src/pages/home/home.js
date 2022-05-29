@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styles from './home.module.css'
 import {NavLink} from 'react-router-dom'
 import Post from "../post/post";
-// import { getPublicContent } from '../../services/user.service'
+import { getPublicContent } from '../../services/user.service'
 
 export default function Home() {
     // const [content, setContent] = useState();
@@ -11,6 +11,10 @@ export default function Home() {
     //     setContent(getPublicContent);
     // }, []);
 
+    useEffect(() => {
+        setContent(getUserThreads);
+        console.log(content);
+    }, []);
 
     return (
         <div className={styles.main}>
