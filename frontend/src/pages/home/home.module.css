@@ -1,0 +1,23 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.main {
+    margin-top: 5px;
+}
+
+.content {
+    text-align: center;
+}
+
+.create__btn {
+    width: 100px;
+    height: 50px;
+}
+
+.create__btn:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}

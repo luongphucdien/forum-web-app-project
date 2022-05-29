@@ -1,18 +1,23 @@
-import React, { useEffect, useState } from "react";
-import { getPublicContent } from '../../services/user.service'
+import React, { useState } from "react";
+import styles from './home.module.css'
+import {NavLink} from 'react-router-dom'
+import Post from "../post/post";
+// import { getPublicContent } from '../../services/user.service'
 
 export default function Home() {
-    const [content, setContent] = useState();
+    // const [content, setContent] = useState();
 
-    useEffect(() => {
-        setContent(getPublicContent);
-    }, []);
+    // useEffect(() => {
+    //     setContent(getPublicContent);
+    // }, []);
+
 
     return (
-        <div className="d-flex justify-content-center">
-            <div className="mt-5">
+        <div className={styles.main}>
+            <div className={styles.content}>
                 <h1>Homepage</h1>
             </div>
+            <NavLink to="/creatingpost" className={styles.create__btn} >Creating post</NavLink>
         </div>
     );
 }

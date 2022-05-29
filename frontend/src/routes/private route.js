@@ -8,7 +8,7 @@ const PrivateRoute = ({ Component }) => {
     const token = getToken();
     const navigate = useNavigate();
     useEffect (() => {
-        if (token) {
+        if (!token) {
             return navigate('/');
         }
     }, []);

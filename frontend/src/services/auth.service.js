@@ -32,10 +32,11 @@ export const signup = (name, username, password) => {
 
 
 export const getCurrentUser = () => {
-    return JSON.parse(localStorage.getItem('user'));
+    return localStorage.getItem('user');
 };
 
 export const getToken = () => {
     return localStorage.getItem('token');
 };
+
 
