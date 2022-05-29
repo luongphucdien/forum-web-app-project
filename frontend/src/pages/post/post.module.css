@@ -19,12 +19,15 @@
     min-height: 100px;
     padding: 32px 24px;
     text-align: center;
-    background: #fff;
-    border-radius: 2px;
+    background: #ffaf10;
+    border-radius: 5px;
     margin: 24px;
     align-self: center;
     box-shadow: 0 2px 5px 0 rgba(51, 62, 73, 0.1);
-    border: none;
+    /* border: none; */
+    outline: none;
+    font-size: 15px;
+    color: #333;
 }
 
 .btn {
@@ -44,4 +47,9 @@
     font-size: 14px;
     border-radius: 8px;
     cursor: pointer;
+}
+
+.post__btn:hover {
+    cursor: pointer;
+    opacity: 0.9;
 }

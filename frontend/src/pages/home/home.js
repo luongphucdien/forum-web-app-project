@@ -5,19 +5,13 @@ import Post from "../post/post";
 import { getPublicContent, getUserThreads } from '../../services/user.service'
 
 export default function Home() {
-    const [content, setContent] = useState();
-
-    useEffect(() => {
-        setContent(getUserThreads);
-        console.log(content);
-    }, []);
-
+    const [content, setContent] = useState([]);
+    
     return (
         <div className={styles.main}>
             <div className={styles.content}>
-                <h1>Homepage</h1>
+                HOMEPAGE
             </div>
-            <NavLink to="/creatingpost" className={styles.create__btn} >Creating post</NavLink>
         </div>
     );
 }

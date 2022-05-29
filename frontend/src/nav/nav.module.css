@@ -6,6 +6,7 @@
 
 .navbar {
     display: flex;
+    margin: auto;
     padding: 5px;
     background-color: aqua;
     justify-content: space-around;
@@ -14,6 +15,7 @@
 .logo {
     display: flex;
     padding-left: 10px;
+    margin-top: 3px;
 }
 
 .logo__img {
@@ -28,39 +30,34 @@
     font-weight: 600;
 }
 
-.search {
-    position: relative;
+.create {
+    display: flex;
+    margin: auto;
 }
 
-.search__input {
-    width: 500px; 
-    height: 30px;
-    padding: 5px;
-    outline: none;
+.create__btn {
+    text-decoration: none;
+    margin: 0 10px;
+    border: none;
+    border-radius: 10px;
+    padding: 8px;
+    width: 500px;
+    background-color: #ffaf10;
+    color: #fff;
+    text-align: center;
+    font-size: 15px;
 }
-
-.search__btn {
-    position: absolute;
-    right: 0;
-    line-height: 30px;
-    margin-right: 5px;
-}
-
-.search__btn:hover {
-    opacity: 0.8;
-    cursor: pointer;
-}
-
 
 .account {
     display: flex;
     align-items: center;
     font-size: 15px;
-    line-height: 100%;
+    /* line-height: 100%; */
 }
 
 .account__register,
-.account__login {
+.account__login,
+.account__logout {
     text-decoration: none;
     margin: 0 10px;
     border: none;
@@ -71,12 +68,10 @@
 }
 
 .account__register:hover,
-.account__login:hover {
+.account__login:hover,
+.account__logout:hover {
     opacity: 0.8;
     cursor: pointer;
-}
-
-.account__register {
-  
+    color: #fff;
 }
 

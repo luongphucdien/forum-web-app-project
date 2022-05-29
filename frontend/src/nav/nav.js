@@ -19,9 +19,8 @@ export default function Nav() {
                     <p className={styles['logo__brand']}>CIRCUS</p>
                 </div>
 
-                <div className={styles.search}>
-                    <i className={'fa-solid fa-magnifying-glass ' + styles['search__btn']}></i>
-                    <input type="text" placeholder='Search...' className={styles['search__input']} />
+                <div className={styles.create}>
+                    <NavLink to ="/creatingpost" className={styles['create__btn']}>Create Post</NavLink>
                 </div>
 
                 <div>
@@ -30,7 +29,7 @@ export default function Nav() {
                         <NavLink to="/register" className={styles['account__register']}>Sign Up</NavLink>
                     </div>
                     <div className={styles.account} style={{display: token ? 'flex' : 'none'}}> 
-                        <NavLink to ="/login" className={styles['account__login']}>Log Out</NavLink>
+                        <NavLink to ="/register" className={styles['account__logout']}>Log Out</NavLink>
                     </div>
 
                 </div>

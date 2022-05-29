@@ -5,7 +5,9 @@ import { getCurrentUser } from "./auth.service";
 const URL = 'http://localhost:8080/content';
 
 export const getPublicContent = () => {
-    return axios.get(URL + '/public');
+    return axios.get(URL + '/public').then(res => {
+        return res.data
+    });
 };
 
 
