@@ -9,11 +9,10 @@ import styles from './nav.module.css'
 export default function Nav() {
     const token = getToken();
     const navigate = useNavigate();
-    useEffect(() => {
-        navigate('/');
-    }, []);
+    const relative_path = window.location.pathname;
+
     return(
-        <div>
+        <div style={{ display: (relative_path == '/register' || relative_path == '/login') ? 'none' : 'block' }}>
             <nav className={styles.navbar}>
                 <div className={styles.logo}>
                     <img src="https://cdn-icons-png.flaticon.com/512/1054/1054861.png" alt="logo" className={styles['logo__img']} />
@@ -26,7 +25,7 @@ export default function Nav() {
                 </div>
 
                 <div className={styles.account} style={{ display: token ? 'none' : 'block' }}>
-                    <NavLink to="/sign-in" className={styles['account__login']}>Log In</NavLink>
+                    <NavLink to="/login" className={styles['account__login']}>Log In</NavLink>
                     <NavLink to="/register" className={styles['account__register']}>Sign Up</NavLink>
                 </div>
             </nav>
