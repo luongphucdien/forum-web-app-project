@@ -22,7 +22,7 @@ exports.initiate = () => {
     var query = 'create table if not exists users('
             +   'name varchar(30) not null,'
             +   'username varchar(30) not null primary key,'
-            +   'password varchar(30) not null'
+            +   'password varchar(100) not null'
             +   ')';
     connection.query(query, (error, result) => {
         if (error) throw error;
@@ -33,8 +33,8 @@ exports.initiate = () => {
     query = 'create table if not exists threads('
             +   'thread_id int not null primary key,'
             +   'content varchar(1000) not null,'
-            +   'username varchar(30) not null'
-            +   'created_date date not null'
+            +   'username varchar(30) not null,'                  
+            +   'created_date varchar(30) not null,'                     // Fix later
             +   'foreign key (username) references users(username)'
             +   ')';
     connection.query(query, (error, result) => {

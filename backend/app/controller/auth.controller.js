@@ -11,7 +11,7 @@ exports.signup = (req, res) => {
     console.log(name, username, password);
 
     // Query to add user to db
-    var query = "'INSERT INTO users (name, username, password) VALUES ('"+ name +"', '" + username + "', '" + password + "')"
+    var query = "INSERT INTO users (name, username, password) VALUES ('"+ name +"', '" + username + "', '" + password + "')"
     connection.query(query, (error, result) => {
         if (error) throw error;
         res.status(200).send({ message: 'New user added!' });
