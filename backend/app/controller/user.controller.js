@@ -13,7 +13,7 @@ exports.userContent = (req, res) => {
     const id = req.body.id;
 
     // Query to fetch threads based on user id here'
-    var query = 'select * from thread';
+    var query = 'select * from threads';
     connection.query(query, (error, result) => {
         if (error) throw error;
         return res.status(200).send(result);
@@ -37,7 +37,13 @@ exports.authenticate = (req, res) => {
 
 
 exports.post = (req, res) => {
-    const id = req.body.username;
+    const username = req.body.username;
     const post = req.body.post;
+    
+    var query = "INSERT INTO thread (content, username) VALUES ('"+ post +"', '" + username + "')";
+    connection.query(query, (error, result) => {
+        if (error) throw error;
+        return res.status(200).send(result);
+    });
     console.log(id, post);
 };
