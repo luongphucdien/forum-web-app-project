@@ -5,11 +5,11 @@ const checkDuplicate = (req, res, next) => {
     var query = 'select username from users where username =' + '"' + req.body.username + '"';
     connection.query(query, (error, result) => {
         if (error) throw error;
-        if (result)
-            return res.status(400).send({message: 'Username is already in use!'});
+        if (result.length)
+            return res.status(400).send(result);
+        next();
     });
 
-    next();
 };
 
 const verifySignup = {

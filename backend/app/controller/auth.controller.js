@@ -8,13 +8,14 @@ exports.signup = (req, res) => {
     const username = req.body.username;
     const password = bcrypt.hashSync(req.body.password, 8);
 
-    console.log(name, username, password);
+    // console.log(name, username, password);
 
     // Query to add user to db
     var query = "INSERT INTO users (name, username, password) VALUES ('"+ name +"', '" + username + "', '" + password + "')"
     connection.query(query, (error, result) => {
         if (error) throw error;
-        res.status(200)//.send({ message: 'New user added!' });
+        console.log(result);
+        return res.status(200).send('New user added!');
     });
 };
 
@@ -39,7 +40,7 @@ exports.signin = (req, res) => {
 
         const id = result[0].id;
         const username = result[0].username;
-        const token = jwt.sign({ id: id }, config.secret, {
+        const token = jwt.sign({ id: username }, config.secret, {
             expiresIn: 86400 // 24 hours
         });
 

@@ -11,7 +11,6 @@ function Register() {
     const navigate = useNavigate()
     const useValidate = (event) => {
         event.preventDefault();
-        console.log(name, username, password);
         // Add auth service here when backend is done
         signup(name, username, password);
     }
