@@ -18,6 +18,7 @@ exports.connect = () => {
 };
 
 exports.initiate = () => {
+    // Initiate users table
     var query = 'create table if not exists users('
             +   'name varchar(30) not null,'
             +   'username varchar(30) not null primary key,'
@@ -25,6 +26,19 @@ exports.initiate = () => {
             +   ')';
     connection.query(query, (error, result) => {
         if (error) throw error;
-        console.log('Success');
+        console.log('Created users table succesfully');
+    });
+
+    // Initiate threads table
+    query = 'create table if not exists threads('
+            +   'thread_id int not null primary key,'
+            +   'content varchar(1000) not null,'
+            +   'username varchar(30) not null'
+            +   'created_date date not null'
+            +   'foreign key (username) references users(username)'
+            +   ')';
+    connection.query(query, (error, result) => {
+        if (error) throw error;
+        console.log('Created threads table succesfully');
     });
 };
