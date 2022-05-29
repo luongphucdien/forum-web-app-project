@@ -27,7 +27,7 @@ export const signup = (name, username, password) => {
         username,
         password
     };
-    return axios.post(URL + '/sign-up', signupInfo);
+    // return axios.post(URL + '/sign-up', signupInfo);
 };
 
 
