@@ -7,11 +7,12 @@ import { signup } from '../../services/auth.service';
 function Register() {
     const [name, setName] = useState('')
     const [password, setPassword] = useState('')
+    const [username, setUsername] = useState('')
     const navigate = useNavigate()
 
     const useValidate = (event) => {
         event.preventDefault();
-        console.log(name, password);
+        console.log(name, username, password);
         // Add auth service here when backend is done
         signup(name, 'test', password);
     }
@@ -27,7 +28,12 @@ function Register() {
 
             <div className={styles['form-group']}>
                 <label htmlFor="fullname" className={styles['form-label']}>Full Name</label>
-                <input value={name} onChange={(e) => setName(e.target.value)}id="fullname" type="text" name="fullname" placeholder="Ex: Happy Clown" className={styles['form-control']} required />
+                <input value={name} onChange={(e) => setName(e.target.value)} id="fullname" type="text" name="fullname" placeholder="Ex: Happy Clown" className={styles['form-control']} required />
+            </div>
+
+            <div className={styles['form-group']}>
+                <label htmlFor="username" className={styles['form-label']}>User Name</label>
+                <input value={username} onChange={(e) => setUsername(e.target.value)} id="username" type="text" name="username" placeholder="Ex: HClown" className={styles['form-control']} required />
             </div>
 
             <div className={styles['form-group']}>
