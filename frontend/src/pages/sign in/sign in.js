@@ -1,33 +1,20 @@
-import axios from 'axios';
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { signin } from '../../services/auth.service';
 
 
 export default function SignIn() {
-    const navigate = useNavigate();
     const [username, setUsername] = useState(null);
     const [password, setPassword] = useState(null);
 
     const handleSignIn = (e) => {
         e.preventDefault();
-        const info = {
-            username: username,
-            password: password
-        };
-
-        axios.post('/authenticate', info).then(res => {
-            navigate('/');
-        });
+        signin(username, password);
     }
-
-    const test = () => {
-        navigate('/');
-    };
 
     return (
         <div className='d-flex mt-5'>
             <div className='m-auto col-10 col-md-5 p-3'>
-                <form onSubmit={test} method='post'>
+                <form onSubmit={handleSignIn} method='post'>
                     <h2 className='text-center mb-4'>Sign in</h2>
 
                     <div className='mb-3 form-floating'>

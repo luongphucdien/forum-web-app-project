@@ -1,23 +1,25 @@
 import { NavLink } from 'react-router-dom'
-import './Nav.css'
+import styles from './nav.module.css'
 
+
+// Note: Need to add link to redirect to home when clicking on navbar brand
 function Nav() {
     return(
         <div>
-            <nav className="navbar">
-                <div className="logo">
-                    <img src="https://cdn-icons-png.flaticon.com/512/1054/1054861.png" alt="logo" className="logo__img" />
-                    <p className="logo__brand">CIRCUS</p>
+            <nav className={styles.navbar}>
+                <div className={styles.logo}>
+                    <img src="https://cdn-icons-png.flaticon.com/512/1054/1054861.png" alt="logo" className={styles['logo__img']} />
+                    <p className={styles['logo__brand']}>CIRCUS</p>
                 </div>
 
-                <div className="search">
-                    <i className="fa-solid fa-magnifying-glass search__btn"></i>
-                    <input type="text" placeholder='Search...' className='search__input' />
+                <div className={styles.search}>
+                    <i className={'fa-solid fa-magnifying-glass ' + styles['search__btn']}></i>
+                    <input type="text" placeholder='Search...' className={styles['search__input']} />
                 </div>
 
-                <div className="account">
-                    <NavLink to="/login" className="account__login">Log In</NavLink>
-                    <NavLink to="/register" className="account__register">Sign Up</NavLink>
+                <div className={styles.account}>
+                    <NavLink to="/sign-in" className={styles['account__login']}>Log In</NavLink>
+                    <NavLink to="/register" className={styles['account__register']}>Sign Up</NavLink>
                 </div>
             </nav>
         </div>

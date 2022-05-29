@@ -9,9 +9,10 @@ export default function Home() {
     }, []);
 
     return (
-        <div>
-            <p>Homepage</p>
-            <div>${ content }</div>
+        <div className="d-flex justify-content-center">
+            <div className="mt-5">
+                <h1>Homepage</h1>
+            </div>
         </div>
     );
 }

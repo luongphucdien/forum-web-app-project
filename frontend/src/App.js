@@ -1,21 +1,23 @@
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
-import Nav from './Nav/Nav';
-import Register from './Register/Register';
-
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
-import logo from './logo.svg';
-import MainRoutes from './routes/main routes';
+import Home from './pages/home/home';
+import SignIn from './pages/sign in/sign in';
+import Register from './pages/register/register';
+import Nav from './nav/nav';
 
 function App() {
   return (
     <div className="App">
-      <Router>
-        <Routes>
-          <Route path='/' element={<Nav />} />
-          <Route path='/register' element={<Register />} />
-        </Routes>
-      </Router>
-      <MainRoutes/>
+      <BrowserRouter>
+            <Nav/>
+            <div>
+                <Routes>
+                    <Route path="/" element={<Home/>} />
+                    <Route path="/sign-in" element={<SignIn/>} />
+                    <Route path="/register" element={<Register/>} />
+                </Routes>
+            </div>
+        </BrowserRouter>
     </div>
   );
 }
