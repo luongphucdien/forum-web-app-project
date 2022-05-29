@@ -13,7 +13,7 @@ function Register() {
         event.preventDefault();
         console.log(name, username, password);
         // Add auth service here when backend is done
-        signup(name, name, password);
+        signup(name, username, password);
     }
 
     return (

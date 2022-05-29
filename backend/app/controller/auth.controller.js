@@ -14,7 +14,7 @@ exports.signup = (req, res) => {
     var query = "INSERT INTO users (name, username, password) VALUES ('"+ name +"', '" + username + "', '" + password + "')"
     connection.query(query, (error, result) => {
         if (error) throw error;
-        res.status(200).send({ message: 'New user added!' });
+        res.status(200)//.send({ message: 'New user added!' });
     });
 };
 
