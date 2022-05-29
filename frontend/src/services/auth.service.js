@@ -33,7 +33,7 @@ export const signup = (name, username, password) => {
 
 
 export const getCurrentUser = () => {
-    return localStorage.getItem('user');
+    return JSON.parse(localStorage.getItem('user'));
 };
 
 export const getToken = () => {

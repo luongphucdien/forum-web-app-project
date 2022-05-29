@@ -19,3 +19,25 @@ exports.userContent = (req, res) => {
         return res.status(200).send(result);
     });
 };
+
+
+exports.authenticate = (req, res) => {
+    const id = req.body.id;
+    if (id) {
+        return res.status(200).send({
+            id: id,
+            message: 'Authorized!'
+        });
+    }
+    return res.status(403).send({
+        id: null,
+        message: 'Unauthorized!'
+    });
+};
+
+
+exports.post = (req, res) => {
+    const id = req.body.username;
+    const post = req.body.post;
+    console.log(id, post);
+};

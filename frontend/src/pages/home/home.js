@@ -1,15 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from './home.module.css'
 import {NavLink} from 'react-router-dom'
 import Post from "../post/post";
-import { getPublicContent } from '../../services/user.service'
+import { getPublicContent, getUserThreads } from '../../services/user.service'
 
 export default function Home() {
-    // const [content, setContent] = useState();
-
-    // useEffect(() => {
-    //     setContent(getPublicContent);
-    // }, []);
+    const [content, setContent] = useState();
 
     useEffect(() => {
         setContent(getUserThreads);
