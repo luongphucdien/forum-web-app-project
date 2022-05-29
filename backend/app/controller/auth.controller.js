@@ -26,7 +26,7 @@ exports.signin = (req, res) => {
         if (error) throw error;
 
         if (!result.length) {
-            return res.status(404).send({ message: 'User not found!' });
+            return res.status(404).send('User not found!');
         }
         
         const password = result[0].password;
@@ -38,7 +38,6 @@ exports.signin = (req, res) => {
             });
         };
 
-        const id = result[0].id;
         const username = result[0].username;
         const token = jwt.sign({ id: username }, config.secret, {
             expiresIn: 86400 // 24 hours

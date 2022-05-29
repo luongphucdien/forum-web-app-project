@@ -9,10 +9,12 @@ function Register() {
     const [password, setPassword] = useState('')
     const [username, setUsername] = useState('')
     const navigate = useNavigate()
+    
     const useValidate = (event) => {
         event.preventDefault();
-        // Add auth service here when backend is done
-        signup(name, username, password);
+        signup(name, username, password).then(() => {
+            navigate('/sign-in');
+        });
     }
 
     return (

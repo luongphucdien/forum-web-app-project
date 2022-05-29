@@ -1,10 +1,17 @@
-import { NavLink } from 'react-router-dom'
+import { useEffect } from 'react';
+import { NavLink, useNavigate } from 'react-router-dom'
+import { getToken } from '../services/auth.service'
 import styles from './nav.module.css'
 
 
 
 // Note: Need to add link to redirect to home when clicking on navbar brand
 export default function Nav() {
+    const token = getToken();
+    const navigate = useNavigate();
+    useEffect(() => {
+        navigate('/');
+    }, []);
     return(
         <div>
             <nav className={styles.navbar}>
@@ -18,7 +25,7 @@ export default function Nav() {
                     <input type="text" placeholder='Search...' className={styles['search__input']} />
                 </div>
 
-                <div className={styles.account}>
+                <div className={styles.account} style={{ display: token ? 'none' : 'block' }}>
                     <NavLink to="/sign-in" className={styles['account__login']}>Log In</NavLink>
                     <NavLink to="/register" className={styles['account__register']}>Sign Up</NavLink>
                 </div>

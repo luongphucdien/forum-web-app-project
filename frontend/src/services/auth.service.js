@@ -1,6 +1,6 @@
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 const URL = 'http://localhost:8080/auth';
-
 
 export const signin = (username, password) => {
     const signinInfo = {
@@ -33,5 +33,9 @@ export const signup = (name, username, password) => {
 
 export const getCurrentUser = () => {
     return JSON.parse(localStorage.getItem('user'));
+};
+
+export const getToken = () => {
+    return localStorage.getItem('token');
 };
 
