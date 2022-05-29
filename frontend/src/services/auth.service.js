@@ -21,7 +21,7 @@ export const signout = () => {
 };
 
 
-export const signup = (name, username, password) => {
+export const signup = (username, name, password) => {
     const signupInfo = {
         name,
         username,

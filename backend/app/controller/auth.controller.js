@@ -4,12 +4,14 @@ const bcrypt = require('bcryptjs');
 const { connection } = require('../config/db.config');
 
 exports.signup = (req, res) => {
-    const name = req.body.name;
-    const username = req.body.username;
-    const password = bcrypt.hashSync(req.body.password, 8);
+    const signupInfo = {
+        name: req.body.name,
+        username: req.body.username,
+        password: bcrypt.hashSync(req.body.password, 8)
+    };
 
     // Query to add user to db
-    var query = '';
+    var query = "'INSERT INTO `forum`.`users` (`name`, `username`, `password`) VALUES ('"+ req.body.name +"', '" + username + "', '" + password + "')"
     connection.query(query, (error, result) => {
         if (error) throw error;
         res.status(200).send({ message: 'New user added!' });
