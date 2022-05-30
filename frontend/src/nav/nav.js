@@ -15,7 +15,9 @@ export default function Nav() {
         <div style={{ display: (relative_path == '/register' || relative_path == '/login') ? 'none' : 'block' }}>
             <nav className={styles.navbar}>
                 <div className={styles.logo}>
-                    <img src="https://cdn-icons-png.flaticon.com/512/1054/1054861.png" alt="logo" className={styles['logo__img']} />
+                    <NavLink to="/">
+                        <img src="https://cdn-icons-png.flaticon.com/512/1054/1054861.png" alt="logo" className={styles['logo__img']} />
+                    </NavLink>
                     <p className={styles['logo__brand']}>CIRCUS</p>
                 </div>
 
