@@ -26,3 +26,15 @@ export const post = (post) => {
         axios.post(URL + '/post', postInfo);
     })
 };
+
+
+export const addComment = (comment, thread_id) => {
+    return axios.get(URL + '/auth', { headers: authHeader() }).then((res) => {
+        const commentInfo = {
+            username: res.data.id,
+            comment: comment,
+            thread_id: thread_id
+        };
+        axios.post(URL + '/comment', commentInfo);
+    })
+};

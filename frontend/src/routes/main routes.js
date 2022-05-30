@@ -6,6 +6,7 @@ import Register from "../pages/register/register";
 import SignIn from "../pages/sign in/sign in";
 import Post from "../pages/post/post"
 import PrivateRoute from "./private route";
+import Comment from "../pages/comment/comment";
 
 export default function MainRoutes() {
     return (
@@ -17,6 +18,7 @@ export default function MainRoutes() {
                     <Route path="/login" element={<SignIn/>} />
                     <Route path="/register" element={<Register/>} />
                     <Route path="/creatingpost" element={<PrivateRoute Component={Post}/>} />
+                    <Route path="/:thread_id/comment" element={<PrivateRoute Component={Comment}/>}/>
                 </Routes>
             </div>
         </BrowserRouter>

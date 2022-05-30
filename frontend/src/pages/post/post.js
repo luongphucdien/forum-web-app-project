@@ -19,7 +19,7 @@ export default function Post () {
             <form className={styles.main} onSubmit={handlePost}>
                 <textarea value={input} onChange={(e) => setInput(e.target.value)} type="text" placeholder = "What are you thinking..." className={styles.input} required/>
                 <div className={styles.btn}>
-                    <input className={styles.post__btn} type='submit' value={'Create Post'}/>
+                    <input className={styles.post__btn} type='submit' value={'Create Thread'}/>
                 </div>
             </form>
         </>

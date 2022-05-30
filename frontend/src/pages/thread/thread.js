@@ -33,7 +33,17 @@ export default function Thread(){
                                 CONTENT: {item.content}
                             </div>
                         </div>
-                        <NavLink to="/comment" className={styles.comment__btn}>Post Comment</NavLink>
+                        <NavLink 
+                            to={item.thread_id + '/comment'} 
+                            className={styles.comment__btn}
+                            state={{
+                                thread: {
+                                    author: item.username,
+                                    content: item.content,
+                                    thread_id: item.thread_id
+                                }
+                            }}
+                        >Post Comment</NavLink>
                         
                     </div>
                     <div className={styles.line}></div>
@@ -42,7 +52,6 @@ export default function Thread(){
             )
         }
 
-        console.log(arr);
         return arr;
     }
 

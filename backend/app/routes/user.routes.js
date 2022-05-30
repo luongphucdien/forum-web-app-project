@@ -17,4 +17,6 @@ module.exports = (app) => {
     app.get('/content/auth', authJWT.verifyToken, controller.authenticate);
 
     app.post('/content/post', controller.post);
+
+    app.post('/content/comment', controller.comment);
 };

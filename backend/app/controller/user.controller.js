@@ -48,6 +48,19 @@ exports.post = (req, res) => {
     var query = "INSERT INTO threads (content, username, created_date) VALUES ('"+ post +"', '" + username + "', '" + date + "')";
     connection.query(query, (error, result) => {
         if (error) throw error;
-        return res.status(200).send(result);
+        return res.status(200).send('Created new thread successfully!');
     });
 };
+
+
+exports.comment = (req, res) => {
+    const username = req.body.username;
+    const comment = req.body.comment;
+    const thread_id = req.body.thread_id;
+
+    var query = '';
+    connection.query(query, (error, result) => {
+        if (error) throw error;
+        return res.status(200).send('Created new comment successfully!');
+    });
+}
