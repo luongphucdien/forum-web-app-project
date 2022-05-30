@@ -18,6 +18,13 @@ exports.connect = () => {
 };
 
 exports.initiate = () => {
+    // Drop tables to prevent conflicts in creating new table
+    var query = 'DROP TABLE IF EXISTS threads, users;';
+    connection.query(query, (error, result) => {
+        if (error) throw error;
+        console.log('Drop tables succesfully');
+    });
+
     // Initiate users table
     var query = 'create table if not exists users('
             +   'name varchar(30) not null,'
@@ -40,5 +47,29 @@ exports.initiate = () => {
     connection.query(query, (error, result) => {
         if (error) throw error;
         console.log('Created threads table succesfully');
+    });
+
+    // Insert testing values into users
+    var query = 'INSERT INTO users (name, username, password) ' 
+            +   'VALUES ' 
+            +   '(\'Wanda Maximoff\', \'wanda\', \'$2a$08$Ra7B0fycE4R5Ng4JZFGWZO7vHxrBqvMMTc/G4o0O43y1ACShBMteu\'), '
+            +   '(\'Testing\', \'apple\', \'$2a$08$Ra7B0fycE4R5Ng4JZFGWZO7vHxrBqvMMTc/G4o0O43y1ACShBMteu\'), ' 
+            +   '(\'loc\', \'loc\', \'$2a$08$Ra7B0fycE4R5Ng4JZFGWZO7vHxrBqvMMTc/G4o0O43y1ACShBMteu\');';
+    connection.query(query, (error, result) => {
+        if (error) throw error;
+        console.log('Insert values to users succesfully');
+    });
+
+    // Insert testing values into threads
+    var query = 'INSERT INTO threads (content, username, created_date) ' 
+            +   'VALUES ' 
+            +   '(\'This is the 1st post of wanda\', \'wanda\', \'1/5/2022\'), '
+            +   '(\'This is the 1st post of apple\', \'apple\', \'29/5/2022\'), ' 
+            +   '(\'This is the 2nd post of apple\', \'apple\', \'30/5/2022\'), '
+            +   '(\'This is the 1st post of loc\', \'loc\', \'1/6/2022\'), '
+            +   '(\'Today is a great day to do presentation\', \'loc\', \'2/6/2022\');';
+    connection.query(query, (error, result) => {
+        if (error) throw error;
+        console.log('Insert values to threads succesfully');
     });
 };
