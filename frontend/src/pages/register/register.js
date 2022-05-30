@@ -1,7 +1,7 @@
 import styles from './register.module.css';
 import {NavLink, useNavigate} from 'react-router-dom';
-import {useState} from 'react'
-import { signup } from '../../services/auth.service';
+import {useEffect, useState} from 'react'
+import { getToken, signup } from '../../services/auth.service';
 
 
 function Register() {
@@ -10,6 +10,12 @@ function Register() {
     const [username, setUsername] = useState('')
     const navigate = useNavigate()
     
+    useEffect(() => {
+        const token = getToken();
+        if (token)
+            navigate('/'); 
+    }, []);
+
     const useValidate = (event) => {
         event.preventDefault();
         signup(name, username, password).then(() => {

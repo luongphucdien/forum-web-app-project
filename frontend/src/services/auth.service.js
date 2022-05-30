@@ -19,6 +19,8 @@ export const signin = (username, password) => {
 
 export const signout = () => {
     localStorage.removeItem('user');
+    localStorage.removeItem('token');
+    window.location.reload();
 };
 
 

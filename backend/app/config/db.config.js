@@ -19,7 +19,7 @@ exports.connect = () => {
 
 exports.initiate = () => {
     // Drop tables to prevent conflicts in creating new table
-    var query = 'DROP TABLE IF EXISTS threads, users;';
+    var query = 'DROP TABLE IF EXISTS threads, users';
     connection.query(query, (error, result) => {
         if (error) throw error;
         console.log('Drop tables succesfully');
@@ -41,7 +41,7 @@ exports.initiate = () => {
             +   'thread_id int not null primary key auto_increment,'
             +   'content varchar(1000) not null,'
             +   'username varchar(30) not null,'                  
-            +   'created_date varchar(30),'                     // Fix later
+            +   'created_date varchar(30) not null,'                     // Fix later
             +   'foreign key (username) references users(username)'
             +   ') AUTO_INCREMENT = 1;';
     connection.query(query, (error, result) => {

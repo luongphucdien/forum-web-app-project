@@ -13,7 +13,7 @@ exports.userContent = (req, res) => {
     const id = req.body.id;
 
     // Query to fetch threads based on user id here'
-    var query = 'select * from threads';
+    var query = 'select * from threads where username = '+ '"' + id + '"';
     connection.query(query, (error, result) => {
         if (error) throw error;
         return res.status(200).send(result);
