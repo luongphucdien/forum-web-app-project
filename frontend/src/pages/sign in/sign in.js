@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { signin } from '../../services/auth.service';
+import { getToken, signin } from '../../services/auth.service';
 import styles from './signin.module.css'
 
 export default function SignIn() {
@@ -8,10 +8,16 @@ export default function SignIn() {
     const [password, setPassword] = useState(null);
     const navigate = useNavigate();
 
+    useEffect(() => {
+        const token = getToken();
+        if (token)
+            navigate('/');
+    }, []);
+
     const handleSignIn = (e) => {
         e.preventDefault();
         signin(username, password).then(() => {
-            navigate('/');
+            window.location.reload();
         });
     }
 

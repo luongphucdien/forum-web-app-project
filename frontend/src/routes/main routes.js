@@ -13,7 +13,7 @@ export default function MainRoutes() {
             <Nav/>
             <div>
                 <Routes>
-                    <Route path="/" element={<Home/>} />
+                    <Route path="/" element={<PrivateRoute Component={Home}/>} />
                     <Route path="/login" element={<SignIn/>} />
                     <Route path="/register" element={<Register/>} />
                     <Route path="/creatingpost" element={<PrivateRoute Component={Post}/>} />

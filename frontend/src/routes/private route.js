@@ -9,7 +9,7 @@ const PrivateRoute = ({ Component }) => {
     const navigate = useNavigate();
     useEffect (() => {
         if (!token) {
-            return navigate('/');
+            return navigate('/register');
         }
     }, []);
     return <Component/>

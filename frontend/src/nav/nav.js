@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom'
-import { getToken } from '../services/auth.service'
+import { getToken, signout } from '../services/auth.service'
 import styles from './nav.module.css'
 
 
@@ -29,7 +29,7 @@ export default function Nav() {
                         <NavLink to="/register" className={styles['account__register']}>Sign Up</NavLink>
                     </div>
                     <div className={styles.account} style={{display: token ? 'flex' : 'none'}}> 
-                        <NavLink to ="/register" className={styles['account__logout']}>Log Out</NavLink>
+                        <button className={styles['accounnt__logout']} onClick={signout} >Log Out</button>
                     </div>
 
                 </div>
