@@ -9,9 +9,6 @@ export default function Home() {
     return (
         <div className={styles.main}>
             <Thread/>
-            <Thread/>
-            <Thread/>
-            <Thread/>
         </div>
     );
 }
