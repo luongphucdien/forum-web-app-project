@@ -36,7 +36,7 @@ exports.initiate = () => {
             +   'username varchar(30) not null,'                  
             +   'created_date varchar(30),'                     // Fix later
             +   'foreign key (username) references users(username)'
-            +   ')';
+            +   ') AUTO_INCREMENT = 1;';
     connection.query(query, (error, result) => {
         if (error) throw error;
         console.log('Created threads table succesfully');

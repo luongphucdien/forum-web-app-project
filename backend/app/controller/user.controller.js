@@ -39,8 +39,11 @@ exports.authenticate = (req, res) => {
 exports.post = (req, res) => {
     const username = req.body.username;
     const post = req.body.post;
+
+    const now = new Date();
+    const date = now.getDate() + '/' + (now.getMonth()+1) + '/' + now.getFullYear();
     
-    var query = "INSERT INTO threads (content, username) VALUES ('"+ post +"', '" + username + "')";
+    var query = "INSERT INTO threads (content, username, created_date) VALUES ('"+ post +"', '" + username + "', '" + date + "')";
     connection.query(query, (error, result) => {
         if (error) throw error;
         return res.status(200).send(result);
