@@ -9,7 +9,6 @@ export const signin = (username, password) => {
     };
     return axios.post(URL + '/sign-in', signinInfo).then(res => {
         if (res.data.accessToken) {
-            console.log(res.data);
             localStorage.setItem('user', JSON.stringify(res.data));
             localStorage.setItem('token', res.data.accessToken);
         }

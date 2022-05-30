@@ -49,5 +49,4 @@ exports.post = (req, res) => {
         if (error) throw error;
         return res.status(200).send(result);
     });
-    console.log(username, post);
 };

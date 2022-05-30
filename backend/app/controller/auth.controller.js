@@ -8,13 +8,10 @@ exports.signup = (req, res) => {
     const username = req.body.username;
     const password = bcrypt.hashSync(req.body.password, 8);
 
-    // console.log(name, username, password);
-
     // Query to add user to db
     var query = "INSERT INTO users (name, username, password) VALUES ('"+ name +"', '" + username + "', '" + password + "')"
     connection.query(query, (error, result) => {
         if (error) throw error;
-        console.log(result);
         return res.status(200).send('New user added!');
     });
 };
