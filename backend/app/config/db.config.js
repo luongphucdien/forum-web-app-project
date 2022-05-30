@@ -63,11 +63,11 @@ exports.initiate = () => {
     // Insert testing values into threads
     var query = 'INSERT INTO threads (content, username, created_date) ' 
             +   'VALUES ' 
-            +   '(\'This is the 1st post of wanda\', \'wanda\', \'1/5/2022\'), '
-            +   '(\'This is the 1st post of apple\', \'apple\', \'29/5/2022\'), ' 
-            +   '(\'This is the 2nd post of apple\', \'apple\', \'30/5/2022\'), '
-            +   '(\'This is the 1st post of loc\', \'loc\', \'1/6/2022\'), '
-            +   '(\'Today is a great day to do presentation\', \'loc\', \'2/6/2022\');';
+            +   '(\'This is the 1st post of wanda\', \'wanda\', \'1/5/2022 15:15:15\'), '
+            +   '(\'This is the 1st post of apple\', \'apple\', \'29/5/2022 16:18:20\'), ' 
+            +   '(\'This is the 2nd post of apple\', \'apple\', \'30/5/2022 1:23:45\'), '
+            +   '(\'This is the 1st post of loc\', \'loc\', \'1/6/2022 5:43:21\'), '
+            +   '(\'Today is a great day to do presentation\', \'loc\', \'2/6/2022 5:10:15\');';
     connection.query(query, (error, result) => {
         if (error) throw error;
         console.log('Insert values to threads succesfully');
