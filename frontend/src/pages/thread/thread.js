@@ -2,9 +2,12 @@ import { NavLink } from "react-router-dom";
 import styles from './thread.module.css';
 import React, { useEffect, useState } from "react";
 import { getPublicContent } from "../../services/user.service";
+import { getCurrentUser } from "../../services/auth.service";
 
 export default function Thread(){
     const [threadList, setThreadList] = useState([]);
+    const user = getCurrentUser();
+    console.log(user)
 
 
     useEffect(() => {
@@ -28,6 +31,7 @@ export default function Thread(){
                         <div className={styles.post__container}>
                             <div className={styles.post__author}>
                                 AUTHOR: {item.username}
+                                <button className={styles.delete__btn} style={{display: user === item.username ? 'block' : 'none'}}>DELETE</button>
                             </div>
                             <div className={styles.post__content}>
                                 CONTENT: {item.content}

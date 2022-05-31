@@ -17,6 +17,7 @@
     display: flex;
     font-size: 20px;
     flex-direction: column;
+    margin-top: 10px;
 }
 
 .post {
@@ -27,6 +28,18 @@
 .post__container {
     padding-bottom: 10px;
     border-bottom: 2px solid #333;
+}
+
+.post__author {
+    display: flex;
+    justify-content: space-between
+}
+
+.delete__btn {
+    border: none;
+    background-color: #ffaf10;
+    text-decoration: none;
+    color: #fff;
 }
 
 .post__comment {
@@ -58,3 +71,4 @@
     width: 100%;
     background-color: #ccc;
 }
+

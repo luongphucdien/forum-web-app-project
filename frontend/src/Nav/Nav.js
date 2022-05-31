@@ -31,7 +31,7 @@ export default function Nav() {
                         <NavLink to="/register" className={styles['account__register']}>Sign Up</NavLink>
                     </div>
                     <div className={styles.account} style={{display: token ? 'flex' : 'none'}}> 
-                        <button className={styles['accounnt__logout']} onClick={signout} >Log Out</button>
+                        <button className={styles['account__logout']} onClick={signout} >Log Out</button>
                     </div>
 
                 </div>

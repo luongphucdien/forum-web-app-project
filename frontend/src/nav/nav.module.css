@@ -57,19 +57,21 @@
 
 .account__register,
 .account__login,
-.account__logout {
+.account__logout,
+.account__yourpost {
     text-decoration: none;
     margin: 0 10px;
     border: none;
     border-radius: 10px;
     padding: 8px;
     background-color: #ffaf10;
-    color: #fff;
+    color: #fff;    
 }
 
 .account__register:hover,
 .account__login:hover,
-.account__logout:hover {
+.account__logout:hover,
+.account__yourpost:hover {
     opacity: 0.8;
     cursor: pointer;
     color: #fff;
