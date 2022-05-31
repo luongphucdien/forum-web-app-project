@@ -38,6 +38,15 @@
 
 .author {
     font-size: 14px;
+    display: flex;
+    font-weight: 600;
+}
+
+.time {
+    margin-left: 10px;
+    font-size: 10px;
+    align-self: center;
+    font-weight: 200;
 }
 
 .delete__btn {

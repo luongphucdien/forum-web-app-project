@@ -28,6 +28,7 @@
     margin-bottom: 0;
     line-height: 30px;
     font-weight: 600;
+    font-size: 15px;
 }
 
 .create {
@@ -46,6 +47,7 @@
     color: #fff;
     text-align: center;
     font-size: 15px;
+    letter-spacing: 3px;
 }
 
 .account {

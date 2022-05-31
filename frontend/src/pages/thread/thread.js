@@ -21,8 +21,8 @@ export default function Thread({thread, content, author, thread_id}){
         if (now.getFullYear() - splitedDate[0] > 0) {
             remain += (now.getFullYear() - splitedDate[0]) + " years ago" 
             return remain;
-        } else if (now.getMonth() - splitedDate[1] > 0) {
-            remain += (now.getMonth() - splitedDate[1]) + " months ago"
+        } else if (now.getMonth() - splitedDate[1] + 1 > 0) {
+            remain += (now.getMonth() - splitedDate[1] + 1) + " months ago"
             return remain;
         } else if (now.getDate() - splitedDate[2] > 0) {
             remain += (now.getDate() - splitedDate[2]) + " days ago"
@@ -48,7 +48,12 @@ export default function Thread({thread, content, author, thread_id}){
 
                         <div className={styles.post__container}>
                             <div className={styles.post__author}>
-                                <div className={styles.author}>{author}</div>
+                                <div className={styles.author}>
+                                    {author}
+                                    <div className={styles.time}>
+                                        Posted {remainingTime(thread.created_date)} 
+                                    </div>
+                                </div>
                                 <button 
                                     className={styles.delete__btn} 
                                     onClick={handleDeleteThread} 
@@ -59,9 +64,7 @@ export default function Thread({thread, content, author, thread_id}){
                             <div className={styles.post__content}>
                                {content}
                             </div>
-                            <div>
-                                Date: {remainingTime(thread.created_date)}
-                            </div>
+                           
                         </div>
                         <NavLink 
                             to={thread_id + '/comment'} 
