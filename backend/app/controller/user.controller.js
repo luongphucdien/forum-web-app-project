@@ -16,7 +16,7 @@ exports.userContent = (req, res) => {
     var query = 'select * from threads where username = '+ '"' + id + '"';
     connection.query(query, (error, result) => {
         if (error) throw error;
-        return res.status(200).send(result);
+        return res.send(result);
     });
 };
 
