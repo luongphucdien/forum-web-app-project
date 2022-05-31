@@ -19,7 +19,7 @@ exports.connect = () => {
 
 exports.initiate = () => {
     // Drop tables to prevent conflicts in creating new table
-    var query = 'DROP TABLE IF EXISTS threads, users';
+    var query = 'DROP TABLE IF EXISTS threads, users, comments';
     connection.query(query, (error, result) => {
         if (error) throw error;
         console.log('Drop tables succesfully');
@@ -48,6 +48,21 @@ exports.initiate = () => {
         if (error) throw error;
         console.log('Created threads table succesfully');
     });
+
+    // Initiate comments table
+    query = 'CREATE TABLE IF NOT EXISTS comments('
+            +   'comment_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,'
+            +   'thread_id INT NOT NULL,'
+            +   'username VARCHAR(30) NOT NULL,'
+            +   'content VARCHAR(1000) NOT NULL,'
+            +   'FOREIGN KEY (thread_id) REFERENCES threads(thread_id),'
+            +   'FOREIGN KEY (username) REFERENCES users(username)'
+            +   ') AUTO_INCREMENT = 1;';
+    connection.query(query, (error, result) => {
+        if (error) throw error;
+        console.log('Created comments table succesfully');
+    });
+
 
     // Insert testing values into users
     var query = 'INSERT INTO users (name, username, password) ' 
