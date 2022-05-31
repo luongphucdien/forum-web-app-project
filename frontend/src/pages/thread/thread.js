@@ -77,9 +77,9 @@ export default function Thread({thread, content, author, thread_id}){
                             className={styles.comment__btn}
                             state={{
                                 thread: {
+                                    thread_id: thread_id,
                                     author: author,
-                                    content: content,
-                                    thread_id: thread_id
+                                    content: content
                                 }
                             }}
                         >Post Comment</NavLink>

@@ -16,9 +16,13 @@ module.exports = (app) => {
 
     app.get('/content/auth', authJWT.verifyToken, controller.authenticate);
 
+    app.get('/content/comments', controller.getComments);
+
     app.post('/content/post', controller.post);
 
     app.post('/content/comment', controller.comment);
 
-    app.post('/content/delete-thread', controller.deleteThread)
+    app.post('/content/delete-thread', controller.deleteThread);
+
+    app.post('/content/delete-comment', controller.deleteComment);
 };

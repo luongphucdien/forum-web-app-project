@@ -4,15 +4,9 @@ import { getCurrentUser } from "./auth.service";
 
 const URL = 'http://localhost:8080/content';
 
-export const deleteThread = (thread_id) => {
-    return axios.get(URL + '/auth', { headers: authHeader() }).then((res) => {
-        axios.post(URL + '/delete-thread', {thread_id: thread_id});
-    })
-}
-
 export const getPublicContent = () => {
-    return axios.get(URL + '/auth', { headers: authHeader() }).then((res) => {
-        return axios.get(URL + '/public')
+    return axios.get(URL + '/public', { headers: authHeader() }).then((res) => {
+        return res.data;
     })
 };
 
@@ -23,6 +17,13 @@ export const getUserThreads = () => {
         return res.data;
     });
 }
+
+
+export const getCommentList = (thread_id) => {
+    return axios.get(URL + '/comments', {params: { thread_id: thread_id }}).then((res) => {
+        return res.data;
+    });
+};
 
 
 export const post = (post) => {
@@ -36,6 +37,13 @@ export const post = (post) => {
 };
 
 
+export const deleteThread = (thread_id) => {
+    return axios.get(URL + '/auth', { headers: authHeader() }).then((res) => {
+        axios.post(URL + '/delete-thread', {thread_id: thread_id});
+    })
+}
+
+
 export const addComment = (comment, thread_id) => {
     return axios.get(URL + '/auth', { headers: authHeader() }).then((res) => {
         const commentInfo = {
@@ -45,4 +53,11 @@ export const addComment = (comment, thread_id) => {
         };
         axios.post(URL + '/comment', commentInfo);
     })
+};
+
+
+export const deleteComment = (comment_id) => {
+    return axios.get(URL + '/auth', { headers: authHeader() }).then((res) => {
+        axios.post(URL + '/delete-comment', {comment_id: comment_id});
+    });
 };

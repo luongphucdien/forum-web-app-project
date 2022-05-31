@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { NavLink, useLocation, useParams } from "react-router-dom";
 import { addComment } from "../../services/user.service";
 import styles from './comment.module.css'
+import CommentList from "./comment_list";
 
 export default function Comment() {
     const [comment, setComment] = useState('')
@@ -11,10 +12,15 @@ export default function Comment() {
     const content = location.state.thread.content;
     const thread_id = location.state.thread.thread_id;
 
+    useEffect(() => {
+        // console.log(thread_id);
+    }, []);
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        addComment(comment, thread_id);
-        window.location.reload();
+        addComment(comment, thread_id).then(() => {
+            window.location.reload();
+        });
     }
 
     return(
@@ -30,6 +36,7 @@ export default function Comment() {
                         </div>
                     </div>
                     <div className={styles.post__comment}>
+                        <CommentList thread_id={thread_id}/>
                         <textarea value={comment} onChange={(e) => setComment(e.target.value)}
                         type="text" placeholder="What are you thinking..." className={styles.comment} required></textarea>
                     </div>

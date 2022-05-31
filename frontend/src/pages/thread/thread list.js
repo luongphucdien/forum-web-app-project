@@ -6,7 +6,7 @@ export default function ThreadList() {
     const [allThreads, setAllThreads] = useState();
 
     useEffect(() => {
-        getPublicContent().then(res => { return setAllThreads(res.data.reverse()) });
+        getPublicContent().then(res => { return setAllThreads(res.reverse()) });
     }, []);
 
     const ParseThreads = () => {
