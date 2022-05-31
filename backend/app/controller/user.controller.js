@@ -38,12 +38,10 @@ exports.authenticate = (req, res) => {
 
 exports.getComments = (req, res) => {
     const thread_id = req.query.thread_id;
-    console.log(thread_id);
 
     var query = 'select * from comments where thread_id = "' + thread_id + '"';
     connection.query(query, (error, result) => {
         if (error) throw error;
-        console.log(result);
         return res.status(200).send(result);
     });
 };
@@ -85,8 +83,8 @@ exports.comment = (req, res) => {
     const date = now.getDate() + '/' + (now.getMonth()+1) + '/' + now.getFullYear() + ' ' 
             +    now.getHours() + ':' + now.getMinutes() + ':' + now.getSeconds();
 
-    var query = 'insert into comments (thread_id, comment, username, comment_date) values'
-            +   '("' + thread_id + '","' + comment + '","' + username + '","' + date + '")';
+    var query = 'insert into comments (thread_id, username, content) values'
+            +   '("' + thread_id + '","' + username + '","' + comment + '")';
     connection.query(query, (error, result) => {
         if (error) throw error;
         return res.status(200).send('Created new comment successfully!');

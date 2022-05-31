@@ -12,10 +12,6 @@ export default function Comment() {
     const content = location.state.thread.content;
     const thread_id = location.state.thread.thread_id;
 
-    useEffect(() => {
-        // console.log(thread_id);
-    }, []);
-
     const handleSubmit = (e) => {
         e.preventDefault();
         addComment(comment, thread_id).then(() => {

@@ -14,7 +14,6 @@ export default function CommentList({thread_id}) {
             return <h1>Loading...</h1>
         else {
             return commentList.map(item => {
-                // console.log(item);
                 return <CommentCard 
                             key={item.comment_id} 
                             comment={item.content}

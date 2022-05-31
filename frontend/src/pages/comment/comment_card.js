@@ -8,9 +8,9 @@ export default function CommentCard({comment, username, comment_id}) {
 
     const handleDelete = (e) => {
         e.preventDefault();
-        // deleteComment(e.target.value).then(() => {
-        //     window.location.reload();
-        // });
+        deleteComment(e.target.value).then(() => {
+            window.location.reload();
+        });
     }
     
     return(
