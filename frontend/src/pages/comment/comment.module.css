@@ -5,7 +5,7 @@
 }
 
 .main {
-    background-color: #ccc;
+    background-color: #dae0e6;
     display: flex;
     width: 100%;
     height: 100%;
@@ -15,8 +15,10 @@
 .content {
     background-color: #fff;
     display: flex;
-    font-size: 20px;
+    font-size: 15px;
     flex-direction: column;
+    margin-top: 10px;
+    border-radius: 2px;
 }
 
 .post {
@@ -26,7 +28,25 @@
 
 .post__container {
     padding-bottom: 10px;
-    border-bottom: 2px solid #333;
+    border-bottom: 1px solid #333;
+}
+
+.post__author {
+    display: flex;
+    justify-content: space-between;
+}
+
+.author {
+    font-size: 14px;
+}
+
+.delete__btn {
+    border: none;
+    background-color: #ffaf10;
+    text-decoration: none;
+    color: #fff;
+    font-size: 10px;
+    padding: 5px;
 }
 
 .post__comment {
@@ -47,10 +67,22 @@
     text-decoration: none;
     color: #fff;
     padding: 5px;
+    font-size: 10px;
 }
 
 .post__content {
-    text-align: center;
+    margin-top: 5px;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.post__btn {
+    padding: 5px;
+    background-color: #ffaf10;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    float: right;
 }
 
 .line {
@@ -58,3 +90,4 @@
     width: 100%;
     background-color: #ccc;
 }
+

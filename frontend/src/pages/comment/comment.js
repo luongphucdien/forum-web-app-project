@@ -23,17 +23,17 @@ export default function Comment() {
                 <div className={styles.post}>
                     <div className={styles.post__container}>
                         <div className={styles.post__author}>
-                            AUTHOR: {author}
+                            <div className={styles.author}>{author}</div>
                         </div>
                         <div className={styles.post__content}>
-                            CONTENT<br/>{content}
+                            {content}
                         </div>
                     </div>
                     <div className={styles.post__comment}>
                         <textarea value={comment} onChange={(e) => setComment(e.target.value)}
                         type="text" placeholder="What are you thinking..." className={styles.comment} required></textarea>
                     </div>
-                    <input type={'submit'} value='Post'/>
+                    <input className={styles.post__btn} type={'submit'} value='Post'/>
                 </div>
                 <div className={styles.line}></div>
             </div>

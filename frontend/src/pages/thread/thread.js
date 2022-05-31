@@ -22,7 +22,7 @@ export default function Thread({content, author, thread_id}){
 
                         <div className={styles.post__container}>
                             <div className={styles.post__author}>
-                                AUTHOR: {author}
+                                <div className={styles.author}>{author}</div>
                                 <button 
                                     className={styles.delete__btn} 
                                     onClick={handleDeleteThread} 
@@ -31,7 +31,7 @@ export default function Thread({content, author, thread_id}){
                                 >DELETE</button>
                             </div>
                             <div className={styles.post__content}>
-                                CONTENT<br/>{content}
+                               {content}
                             </div>
                         </div>
                         <NavLink 

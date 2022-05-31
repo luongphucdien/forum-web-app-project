@@ -5,11 +5,11 @@
 }
 
 .main {
-        background-color: #ccc;
+        background-color: #dae0e6;
         display: flex;
         width: 100%;
         height: 100%;
         justify-content: center;
         flex-direction: column;
-        padding-top: 50px;
+        padding-top: 30px;
 }
