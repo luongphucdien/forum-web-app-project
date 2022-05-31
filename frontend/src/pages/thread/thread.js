@@ -12,6 +12,32 @@ export default function Thread({thread, content, author, thread_id}){
             window.location.reload();
         });
     }
+
+    function remainingTime(date) {
+        const now = new Date();
+        let remain = "";
+        let splitedDate = date.split(/[ .:;?!~,`"&|()<>{}\[\]\r\n/\\]+/)
+
+        if (now.getFullYear() - splitedDate[0] > 0) {
+            remain += (now.getFullYear() - splitedDate[0]) + " years ago" 
+            return remain;
+        } else if (now.getMonth() - splitedDate[1] > 0) {
+            remain += (now.getMonth() - splitedDate[1]) + " months ago"
+            return remain;
+        } else if (now.getDate() - splitedDate[2] > 0) {
+            remain += (now.getDate() - splitedDate[2]) + " days ago"
+            return remain;
+        } else if (now.getHours - splitedDate[3] > 0) {
+            remain += (now.getHours() - splitedDate[3]) + " hours ago"
+            return remain;
+        } else if (now.getMinutes() - splitedDate[4] > 0) {
+            remain += (now.getMinutes() - splitedDate[4]) + " minutes ago"
+            return remain;
+        } else if (now.getSeconds() - splitedDate[5] > 0) {
+            remain += (now.getSeconds() - splitedDate[5]) + " seconds ago"
+            return remain;
+        }
+    }
     
     return(
         <div className={styles.main}>
@@ -34,7 +60,7 @@ export default function Thread({thread, content, author, thread_id}){
                                {content}
                             </div>
                             <div>
-                                Date: {thread.created_date}
+                                Date: {remainingTime(thread.created_date)}
                             </div>
                         </div>
                         <NavLink 

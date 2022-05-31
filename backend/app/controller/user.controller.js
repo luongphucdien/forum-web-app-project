@@ -51,7 +51,7 @@ exports.post = (req, res) => {
     const post = req.body.post;
 
     const now = new Date();
-    const date = now.getDate() + '/' + (now.getMonth()+1) + '/' + now.getFullYear() + ' ' 
+    const date = now.getFullYear() + '/' + (now.getMonth()+1) + '/' + now.getDate() + ' ' 
             +    now.getHours() + ':' + now.getMinutes() + ':' + now.getSeconds();
     
     var query = "INSERT INTO threads (content, username, created_date) VALUES ('"+ post +"', '" + username + "', '" + date + "')";
