@@ -5,8 +5,7 @@ exports.publicContent = (req, res) => {
     var query = 'select * from threads';
     connection.query(query, (error, result) => {
         if (error) throw error;
-        console.log(result)
-        return result;
+        return res.send(result);
     });
 };
 
