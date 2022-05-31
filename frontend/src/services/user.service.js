@@ -6,7 +6,7 @@ const URL = 'http://localhost:8080/content';
 
 export const deleteThread = (thread_id) => {
     return axios.get(URL + '/auth', { headers: authHeader() }).then((res) => {
-        axios.post(URL + '/delete-thread', thread_id)
+        axios.post(URL + '/delete-thread', {thread_id: thread_id});
     })
 }
 

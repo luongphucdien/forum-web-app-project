@@ -15,7 +15,7 @@ exports.deleteThread = (req, res) => {
     var query = 'DELETE FROM threads WHERE thread_id=\'' + thread_id + '\'';
     connection.query(query, (error, result) => {
         if (error) throw error;
-        return res.send(result);
+        return res.status(200).send('Thread deleted successfully!');
     });
 }
 
