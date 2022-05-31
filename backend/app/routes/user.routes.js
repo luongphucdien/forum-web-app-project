@@ -19,4 +19,6 @@ module.exports = (app) => {
     app.post('/content/post', controller.post);
 
     app.post('/content/comment', controller.comment);
+
+    app.post('/content/delete-thread', controller.deleteThread)
 };

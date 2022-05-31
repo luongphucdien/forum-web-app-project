@@ -4,11 +4,13 @@ import React, { useEffect, useState } from "react";
 import { getUserThreads } from "../../services/user.service";
 
 export default function Your_Thread(){
-    let threadList = [{}]
+    const [threadList, setThreadList] = useState([]);
+
+    setThreadList([{}])
 
     useEffect(() => {
         getUserThreads().then((res) => {
-            threadList = res.data;
+            setThreadList(res.data);
         });
     }, []);
     

@@ -3,6 +3,7 @@ import styles from './thread.module.css';
 import React, { useEffect, useState } from "react";
 import { getPublicContent } from "../../services/user.service";
 import { getCurrentUser } from "../../services/auth.service";
+import { deleteThread } from "../../services/user.service";
 
 export default function Thread(){
     const [threadList, setThreadList] = useState([]);
@@ -15,6 +16,12 @@ export default function Thread(){
             setThreadList(res.data);
         });
     }, []);
+
+    function handleDeleteThread(thread_id) {
+        deleteThread(thread_id).then(() => {
+            window.location.reload();
+        });
+    }
     
 
     const listThreads = () => {
@@ -22,6 +29,7 @@ export default function Thread(){
 
         for (let i = threadList.length-1; i>=0; i--) {
             const item = threadList[i];
+            console.log(item.thread_id)
 
             arr.push(
                 <div className={styles.content}>
@@ -31,7 +39,7 @@ export default function Thread(){
                         <div className={styles.post__container}>
                             <div className={styles.post__author}>
                                 AUTHOR: {item.username}
-                                <button className={styles.delete__btn} style={{display: user === item.username ? 'block' : 'none'}}>DELETE</button>
+                                <button className={styles.delete__btn} onClick={handleDeleteThread(item.thread_id)} style={{display: (user.username == item.username) ? 'block' : 'none'}}>DELETE</button>
                             </div>
                             <div className={styles.post__content}>
                                 CONTENT: {item.content}

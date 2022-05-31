@@ -9,6 +9,16 @@ exports.publicContent = (req, res) => {
     });
 };
 
+exports.deleteThread = (req, res) => {
+    const thread_id = req.body.thread_id;
+
+    var query = 'DELETE FROM threads WHERE thread_id=\'' + thread_id + '\'';
+    connection.query(query, (error, result) => {
+        if (error) throw error;
+        return res.send(result);
+    });
+}
+
 exports.userContent = (req, res) => {
     const id = req.body.id;
 

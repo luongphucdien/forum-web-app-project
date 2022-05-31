@@ -4,6 +4,10 @@ import { getCurrentUser } from "./auth.service";
 
 const URL = 'http://localhost:8080/content';
 
+export const deleteThread = (thread_id) => {
+    return axios.post(URL + '/delete-thread', thread_id)
+}
+
 export const getPublicContent = () => {
     return axios.get(URL + '/public')
 };
