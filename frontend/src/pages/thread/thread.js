@@ -3,7 +3,7 @@ import styles from './thread.module.css';
 import { getCurrentUser } from "../../services/auth.service";
 import { deleteThread } from "../../services/user.service";
 
-export default function Thread({content, author, thread_id}){
+export default function Thread({thread, content, author, thread_id}){
     const user = getCurrentUser();
 
     const handleDeleteThread = (e) => {
@@ -32,6 +32,9 @@ export default function Thread({content, author, thread_id}){
                             </div>
                             <div className={styles.post__content}>
                                {content}
+                            </div>
+                            <div>
+                                Date: {thread.created_date}
                             </div>
                         </div>
                         <NavLink 
