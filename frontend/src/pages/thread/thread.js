@@ -48,8 +48,16 @@ export default function Thread({thread, content, author, thread_id}){
     return(
         <div className={styles.main}>
             <div>
-                <NavLink to={thread_id + '/comment'} className={styles.content}>
-
+                <NavLink 
+                        to={thread_id + '/comment'} 
+                        className={styles.content} 
+                        state={{
+                                thread: {
+                                    thread_id: thread_id,
+                                    author: author,
+                                    content: content
+                                }
+                        }}>
                     <div className={styles.post}>
 
                         <div className={styles.post__container}>
