@@ -1,16 +1,22 @@
 import { useEffect, useState } from "react";
 import { NavLink, useLocation, useParams } from "react-router-dom";
-import { addComment } from "../../services/user.service";
+import { addComment, getCommentList } from "../../services/user.service";
 import styles from './comment.module.css'
 import CommentList from "./comment_list";
 
 export default function Comment() {
-    const [comment, setComment] = useState('')
+    const [comment, setComment] = useState('');
+    const [commentList, setCommentList] = useState();
+
     const location = useLocation();
     
     const author = location.state.thread.author;
     const content = location.state.thread.content;
     const thread_id = location.state.thread.thread_id;
+
+    useEffect(() => {
+        getCommentList(thread_id).then((res) => { setCommentList(res.reverse()) });
+    }, []);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -18,6 +24,13 @@ export default function Comment() {
             window.location.reload();
         });
     }
+
+    const NumberOfComments = () => {
+        if (!commentList)
+            return <span>Loading...</span>
+        else
+            return <span>{commentList.length} {(commentList.length <= 1) ? 'comment' : 'comments'}</span>
+    };
 
     return(
         <form className={styles.main} onSubmit={handleSubmit}>
@@ -39,10 +52,10 @@ export default function Comment() {
                         </div>
                         <div className={styles.lines}></div>
                         <div>
-                        <p className={styles.view__comments}>3 Comments</p>
+                        <p className={styles.view__comments}><NumberOfComments/></p>
                         </div>
                         <div className={styles.comment__list}>
-                            <CommentList thread_id={thread_id}/>
+                            <CommentList list={commentList}/>
                         </div>
                     </div>
 
