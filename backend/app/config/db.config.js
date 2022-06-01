@@ -55,6 +55,7 @@ exports.initiate = () => {
             +   'thread_id INT NOT NULL,'
             +   'username VARCHAR(30) NOT NULL,'
             +   'content VARCHAR(1000) NOT NULL,'
+            +   'create_date DATETIME,'
             +   'FOREIGN KEY (thread_id) REFERENCES threads(thread_id),'
             +   'FOREIGN KEY (username) REFERENCES users(username)'
             +   ') AUTO_INCREMENT = 1;';

@@ -22,7 +22,7 @@ export default function Thread({thread, content, author, thread_id}){
     function remainingTime(date) {
         const now = new Date();
         let remain = "";
-        let splitedDate = date.split(/[ .:;?!~,`"&|()<>{}\[\]\r\n/\\]+/)
+        let splitedDate = date.split(/[ .:;?!~,`"&|()<>{}\[\]\r\n/\\]+/);
 
         if (now.getFullYear() - splitedDate[0] > 0) {
             remain += (now.getFullYear() - splitedDate[0]) + " years ago" 

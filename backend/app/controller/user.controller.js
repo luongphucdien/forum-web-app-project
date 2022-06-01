@@ -80,11 +80,11 @@ exports.comment = (req, res) => {
     const thread_id = req.body.thread_id;
 
     const now = new Date();
-    const date = now.getDate() + '/' + (now.getMonth()+1) + '/' + now.getFullYear() + ' ' 
+    const create_date = now.getDate() + '/' + (now.getMonth()+1) + '/' + now.getFullYear() + ' ' 
             +    now.getHours() + ':' + now.getMinutes() + ':' + now.getSeconds();
 
-    var query = 'insert into comments (thread_id, username, content) values'
-            +   '("' + thread_id + '","' + username + '","' + comment + '")';
+    var query = 'insert into comments (thread_id, username, content, create_date) values'
+            +   '("' + thread_id + '","' + username + '","' + comment + '","' + create_date + '")';
     connection.query(query, (error, result) => {
         if (error) throw error;
         return res.status(200).send('Created new comment successfully!');

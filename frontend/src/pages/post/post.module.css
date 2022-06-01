@@ -39,11 +39,11 @@
     outline: none;
     background-color: #ffaf10;
     margin-top: 12px;
-    padding: 12px 8px;
+    padding: 12px 5px;
     font-weight: 600;
     color: red;
     border: none;
-    width: 100%;
+    width: 110%;
     font-size: 14px;
     border-radius: 8px;
     cursor: pointer;
