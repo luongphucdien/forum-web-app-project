@@ -80,7 +80,7 @@ exports.comment = (req, res) => {
     const thread_id = req.body.thread_id;
 
     const now = new Date();
-    const create_date = now.getDate() + '/' + (now.getMonth()+1) + '/' + now.getFullYear() + ' ' 
+    const create_date = now.getFullYear() + '/' + (now.getMonth()+1) + '/' + now.getDate() + ' ' 
             +    now.getHours() + ':' + now.getMinutes() + ':' + now.getSeconds();
 
     var query = 'insert into comments (thread_id, username, content, create_date) values'
