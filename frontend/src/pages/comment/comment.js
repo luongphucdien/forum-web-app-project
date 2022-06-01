@@ -31,12 +31,21 @@ export default function Comment() {
                             {content}
                         </div>
                     </div>
-                    <div className={styles.post__comment}>
-                        <CommentList thread_id={thread_id}/>
-                        <textarea value={comment} onChange={(e) => setComment(e.target.value)}
-                        type="text" placeholder="What are you thinking..." className={styles.comment} required></textarea>
+                    <div>
+                        <div className={styles.post__comment}>
+                            <textarea value={comment} onChange={(e) => setComment(e.target.value)}
+                            type="text" placeholder="What are you thinking..." className={styles.comment__input} required></textarea>
+                            <input className={styles.post__btn} type={'submit'} value='Post'/>
+                        </div>
+                        <div className={styles.lines}></div>
+                        <div>
+                        <p className={styles.view__comments}>3 Comments</p>
+                        </div>
+                        <div className={styles.comment__list}>
+                            <CommentList thread_id={thread_id}/>
+                        </div>
                     </div>
-                    <input className={styles.post__btn} type={'submit'} value='Post'/>
+
                 </div>
                 <div className={styles.line}></div>
             </div>

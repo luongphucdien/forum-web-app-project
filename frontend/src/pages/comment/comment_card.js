@@ -14,24 +14,24 @@ export default function CommentCard({comment, username, comment_id}) {
     }
     
     return(
-        <div className={styles.main}>
+        <div className={styles.comment__main}>
             <div>
                 <div className={styles.content}>
 
-                    <div className={styles.post}>
+                    <div className={styles.comment}>
 
-                        <div className={styles.post__container}>
-                            <div className={styles.post__author}>
-                                USER: {username}
+                        <div className={styles.comment__container}>
+                            <div className={styles.comment__author}>
+                                {username}
                                 <button 
-                                    className={styles.delete__btn} 
+                                    className={styles.delete__comment__btn} 
                                     onClick={handleDelete} 
                                     style={{display: (user.username === username) ? 'block' : 'none'}}
                                     value={comment_id}
                                 >DELETE</button>
                             </div>
-                            <div className={styles.post__content}>
-                                COMMENT<br/>{comment}
+                            <div className={styles.comment__content}>
+                                {comment}
                             </div>
                         </div>                        
                     </div>
