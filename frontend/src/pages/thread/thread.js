@@ -93,9 +93,9 @@ export default function Thread({thread, content, author, thread_id}){
                         >Post Comment</NavLink>
                         
                     </div>
-                    <div className={styles.line}></div>
 
                 </NavLink>
+                    {/* <div className={styles.line}></div> */}
             </div>
         </div>
     )

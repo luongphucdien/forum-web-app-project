@@ -60,7 +60,7 @@ export default function Comment() {
                     </div>
 
                 </div>
-                <div className={styles.line}></div>
+                {/* <div className={styles.line}></div> */}
             </div>
         </form>
     )
