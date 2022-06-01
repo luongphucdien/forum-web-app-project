@@ -3,7 +3,7 @@ import { getCurrentUser } from '../../services/auth.service';
 import { deleteComment } from '../../services/user.service';
 import styles from './comment.module.css';
 
-export default function CommentCard({comment, username, comment_id}) {
+export default function CommentCard({comment, username, comment_id, comment_card}) {
     const user = getCurrentUser();
     let authorTmp = username;
 
@@ -32,7 +32,7 @@ export default function CommentCard({comment, username, comment_id}) {
         } else if (now.getDate() - splitedDate[2] > 0) {
             remain += (now.getDate() - splitedDate[2]) + " days ago"
             return remain;
-        } else if (now.getHours - splitedDate[3] > 0) {
+        } else if (now.getHours() - splitedDate[3] > 0) {
             remain += (now.getHours() - splitedDate[3]) + " hours ago"
             return remain;
         } else if (now.getMinutes() - splitedDate[4] > 0) {
@@ -55,7 +55,7 @@ export default function CommentCard({comment, username, comment_id}) {
                             <div className={styles.comment__author}>
                                 {authorTmp}
                                 <div className={styles.time}>
-                                    Posted {remainingTime(comment.create_date)} 
+                                    Posted {remainingTime(comment_card.create_date)} 
                                 </div>
                                 <button 
                                     className={styles.delete__comment__btn} 

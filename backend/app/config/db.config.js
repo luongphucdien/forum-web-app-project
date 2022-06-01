@@ -55,7 +55,7 @@ exports.initiate = () => {
             +   'thread_id INT NOT NULL,'
             +   'username VARCHAR(30) NOT NULL,'
             +   'content VARCHAR(1000) NOT NULL,'
-            +   'create_date DATETIME,'
+            +   'create_date VARCHAR(30),'
             +   'FOREIGN KEY (thread_id) REFERENCES threads(thread_id),'
             +   'FOREIGN KEY (username) REFERENCES users(username)'
             +   ') AUTO_INCREMENT = 1;';
@@ -90,14 +90,14 @@ exports.initiate = () => {
     });
 
     // Insert comments
-    query = 'INSERT INTO comments (thread_id, username, content) VALUES '
-        +   '(\'5\', \'wanda\', \'test\'),'
-        +   '(\'5\', \'apple\', \'Comment from apple\'),'
-        +   '(\'4\', \'loc\', \'this is a comment\'),'
-        +   '(\'3\', \'wanda\', \'another comment\'),'
-        +   '(\'2\', \'loc\', \'bla bla bla\'),'
-        +   '(\'1\', \'apple\', \'Comment\'),'
-        +   '(\'5\', \'wanda\', \'Lmao, I hate this\')'
+    query = 'INSERT INTO comments (thread_id, username, content, create_date) VALUES '
+        +   '(\'5\', \'wanda\', \'test\', \'2022/5/1 15:15:15\'),'
+        +   '(\'5\', \'apple\', \'Comment from apple\', \'2022/6/1 5:43:21\'),'
+        +   '(\'4\', \'loc\', \'this is a comment\', \'2022/5/30 1:23:45\'),'
+        +   '(\'3\', \'wanda\', \'another comment\', \'2022/5/30 1:23:45\'),'
+        +   '(\'2\', \'loc\', \'bla bla bla\', \'2022/5/11 1:23:45\'),'
+        +   '(\'1\', \'apple\', \'Comment\', \'2022/5/23 1:23:45\'),'
+        +   '(\'5\', \'wanda\', \'Lmao, I hate this\', \'2022/6/1 15:23:45\')'
     connection.query(query, (error, result) => {
         if (error) throw error;
         console.log('Insert testing values for comments successfully');

@@ -13,6 +13,7 @@ export default function CommentList({list}) {
                             comment={item.content}
                             username={item.username}
                             comment_id={item.comment_id}
+                            comment_card={item}
                         />
             });
         }
