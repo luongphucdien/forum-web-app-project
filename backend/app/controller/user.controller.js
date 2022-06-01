@@ -66,7 +66,12 @@ exports.post = (req, res) => {
 exports.deleteThread = (req, res) => {
     const thread_id = req.body.thread_id;
 
-    var query = 'DELETE FROM threads WHERE thread_id=\'' + thread_id + '\'';
+    var query = 'DELETE FROM comments WHERE thread_id=\'' + thread_id + '\'';
+    connection.query(query, (error, result) => {
+        if (error) throw error;
+    });
+
+    query = 'DELETE FROM threads WHERE thread_id=\'' + thread_id + '\'';
     connection.query(query, (error, result) => {
         if (error) throw error;
         return res.status(200).send('Thread deleted successfully!');

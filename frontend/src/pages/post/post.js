@@ -11,7 +11,7 @@ export default function Post () {
     const handlePost = (e) => {
         e.preventDefault()
         post(input);
-        window.location.reload();
+        window.location.href = '/';
     }
 
     return (
