@@ -7,7 +7,9 @@ import ThreadList from "../thread/thread list";
 export default function Home() {    
     return (
         <div className={styles.main}>
-            <ThreadList/>
+            <div className={styles.thread__list}>
+                <ThreadList/>
+            </div>
         </div>
     );
 }

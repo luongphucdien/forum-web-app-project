@@ -12,4 +12,9 @@
         justify-content: center;
         flex-direction: column;
         padding-top: 30px;
+        min-height: 100vh;
+}
+
+.thread__list {
+    padding: 10px;
 }
