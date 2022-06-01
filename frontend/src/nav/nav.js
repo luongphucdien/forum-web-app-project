@@ -18,7 +18,7 @@ export default function Nav() {
                     <NavLink to="/">
                         <img src="https://cdn-icons-png.flaticon.com/512/1054/1054861.png" alt="logo" className={styles['logo__img']} />
                     </NavLink>
-                    <p className={styles['logo__brand']}>CIRCUS</p>
+                    <NavLink to="/" className={styles['logo__brand']}>CIRCUS</NavLink>
                 </div>
 
                 <div className={styles.create}>

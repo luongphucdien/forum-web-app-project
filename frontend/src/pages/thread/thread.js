@@ -48,7 +48,7 @@ export default function Thread({thread, content, author, thread_id}){
     return(
         <div className={styles.main}>
             <div>
-                <div className={styles.content}>
+                <NavLink to={thread_id + '/comment'} className={styles.content}>
 
                     <div className={styles.post}>
 
@@ -87,7 +87,7 @@ export default function Thread({thread, content, author, thread_id}){
                     </div>
                     <div className={styles.line}></div>
 
-                </div>
+                </NavLink>
             </div>
         </div>
     )

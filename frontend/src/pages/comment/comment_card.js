@@ -52,10 +52,12 @@ export default function CommentCard({comment, username, comment_id, comment_card
                     <div className={styles.comment}>
 
                         <div className={styles.comment__container}>
-                            <div className={styles.comment__author}>
-                                {authorTmp}
-                                <div className={styles.time}>
-                                    Posted {remainingTime(comment_card.create_date)} 
+                            <div className={styles.comment__header}>
+                                <div className={styles.comment__author}>
+                                    {authorTmp}
+                                    <div className={styles.time}>
+                                        Posted {remainingTime(comment_card.create_date)} 
+                                    </div>
                                 </div>
                                 <button 
                                     className={styles.delete__comment__btn} 

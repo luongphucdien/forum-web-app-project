@@ -7,9 +7,10 @@
 .main {
     background-color: #dae0e6;
     display: flex;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    min-height: 100vh;
     justify-content: center;
+    padding-top: 40px;
 }
 
 .content {
@@ -19,11 +20,16 @@
     flex-direction: column;
     margin-top: 10px;
     border-radius: 2px;
+    max-height: 40vh;
+    height: 100%;
 }
 
 .post {
     margin: 10px;
     width: 480px;
+    max-height: 40vh;
+    height: 100%;
+    align-self: center;
 }
 
 .post__container {
@@ -121,10 +127,23 @@
     width: 480px;
 }
 
-.comment__author {
+.time {
+    margin-left: 10px;
+    font-size: 10px;
+    font-weight: 200;
+    align-self: center;
+}
+
+.comment__header {
     font-size: 14px;
     display: flex;
     justify-content: space-between;
+}
+
+.comment__author {
+    font-size: 14px;
+    display: flex;
+    font-weight: 600;
 }
 
 .comment__content {

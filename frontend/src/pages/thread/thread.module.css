@@ -19,6 +19,8 @@
     flex-direction: column;
     margin-top: 10px;
     border-radius: 2px;
+    text-decoration: none;
+    color: #333
 }
 
 .post {
