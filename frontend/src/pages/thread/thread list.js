@@ -15,7 +15,7 @@ export default function ThreadList() {
         }
         else {
             return allThreads.map(item => {
-                return <Thread thread={item} content={item.content} author={item.username} thread_id={item.thread_id} key={item.thread_id}/>
+                return <Thread created_date={item.created_date} content={item.content} author={item.username} thread_id={item.thread_id} key={item.thread_id}/>
             });
         }
     };

@@ -1,6 +1,6 @@
-import { useEffect } from 'react';
-import { NavLink, useNavigate } from 'react-router-dom'
-import { getToken, signout } from '../services/auth.service'
+import { useEffect, useState } from 'react';
+import { NavLink } from 'react-router-dom'
+import { getCurrentUser, getToken, signout } from '../services/auth.service'
 import styles from './nav.module.css'
 
 
@@ -8,8 +8,13 @@ import styles from './nav.module.css'
 // Note: Need to add link to redirect to home when clicking on navbar brand
 export default function Nav() {
     const token = getToken();
-    const navigate = useNavigate();
     const relative_path = window.location.pathname;
+    const [username, setUsername] = useState();
+
+    useEffect(() => {
+        if (token)
+            setUsername(getCurrentUser().username);
+    }, []);
 
     return(
         <div style={{ display: (relative_path == '/register' || relative_path == '/login') ? 'none' : 'block' }}>
@@ -31,6 +36,7 @@ export default function Nav() {
                         <NavLink to="/register" className={styles['account__register']}>Sign Up</NavLink>
                     </div>
                     <div className={styles.account} style={{display: token ? 'flex' : 'none'}}> 
+                        <NavLink to={'/' + username}>User Page</NavLink>
                         <button className={styles['account__logout']} onClick={signout} >Log Out</button>
                     </div>
 

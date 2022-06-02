@@ -2,9 +2,8 @@ import { NavLink } from "react-router-dom";
 import styles from './thread.module.css';
 import { getCurrentUser } from "../../services/auth.service";
 import { deleteThread } from "../../services/user.service";
-import { useEffect } from "react";
 
-export default function Thread({thread, content, author, thread_id}){
+export default function Thread({created_date, content, author, thread_id}){
     const user = getCurrentUser();
     let authorTmp = author;
 
@@ -65,7 +64,7 @@ export default function Thread({thread, content, author, thread_id}){
                                 <div className={styles.author}>
                                     {authorTmp}
                                     <div className={styles.time}>
-                                        Posted {remainingTime(thread.created_date)} 
+                                        Posted {remainingTime(created_date)} 
                                     </div>
                                 </div>
                                 <button 

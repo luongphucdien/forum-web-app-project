@@ -12,7 +12,6 @@ export const getPublicContent = () => {
 
 export const getUserThreads = () => {
     return axios.get(URL + '/user', { headers: authHeader() }).then((res) => {
-        console.log(res.data);
         return res.data;
     });
 }
