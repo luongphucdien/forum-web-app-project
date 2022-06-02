@@ -29,7 +29,7 @@ export default function Comment() {
         if (!commentList)
             return <span>Loading...</span>
         else
-            return <span>{commentList.length} {(commentList.length <= 1) ? 'comment' : 'comments'}</span>
+            return <span>{commentList.length} {(commentList.length <= 1) ? 'Comment' : 'Comments'}</span>
     };
 
     return(

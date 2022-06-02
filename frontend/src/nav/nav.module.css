@@ -62,7 +62,7 @@
 .account__register,
 .account__login,
 .account__logout,
-.account__yourpost {
+.account__userpage {
     text-decoration: none;
     margin: 0 10px;
     border: none;
@@ -75,9 +75,9 @@
 .account__register:hover,
 .account__login:hover,
 .account__logout:hover,
-.account__yourpost:hover {
+.account__userpage:hover {
     opacity: 0.8;
     cursor: pointer;
-    color: #fff;
+    color: #333;
 }
 
