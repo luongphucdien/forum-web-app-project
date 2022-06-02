@@ -20,6 +20,7 @@ export default function MainRoutes() {
                     <Route path="/register" element={<Register/>} />
                     <Route path="/creatingpost" element={<PrivateRoute Component={Post}/>} />
                     <Route path="/:thread_id/comment" element={<PrivateRoute Component={Comment}/>}/>
+                    <Route path="/:username/:thread_id/comment" element={<PrivateRoute Component={Comment}/>}/>
                     <Route path="/:username" element={<PrivateRoute Component={UserPage}/>} />
                 </Routes>
             </div>

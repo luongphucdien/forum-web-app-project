@@ -1,12 +1,10 @@
 import styles from './post.module.css'
 import {useState} from "react"
 import { post } from '../../services/user.service'
-import { useNavigate } from 'react-router-dom';
 
 
 export default function Post () {
     const [input, setInput] = useState('');
-    const navigate = useNavigate();
 
     const handlePost = (e) => {
         e.preventDefault()
