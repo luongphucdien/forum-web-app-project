@@ -30,23 +30,22 @@ export default function Thread({created_date, content, author, thread_id}){
 
         if (now.getFullYear() - splitedDate[0] > 0) {
             remain += (now.getFullYear() - splitedDate[0]) + " years ago" 
-            return remain;
         } else if (now.getMonth() - splitedDate[1] + 1 > 0) {
             remain += (now.getMonth() - splitedDate[1] + 1) + " months ago"
-            return remain;
         } else if (now.getDate() - splitedDate[2] > 0) {
             remain += (now.getDate() - splitedDate[2]) + " days ago"
-            return remain;
         } else if (now.getHours() - splitedDate[3] > 0) {
             remain += (now.getHours() - splitedDate[3]) + " hours ago"
-            return remain;
         } else if (now.getMinutes() - splitedDate[4] > 0) {
             remain += (now.getMinutes() - splitedDate[4]) + " minutes ago"
-            return remain;
         } else if (now.getSeconds() - splitedDate[5] > 0) {
             remain += (now.getSeconds() - splitedDate[5]) + " seconds ago"
-            return remain;
         }
+        else {
+            remain += ' 0 second ago';
+        }
+
+        return remain;
     }
 
     useEffect(() => {

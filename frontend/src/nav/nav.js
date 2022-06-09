@@ -27,7 +27,7 @@ export default function Nav() {
                 </div>
 
                 <div className={styles.create}>
-                    <NavLink to ="/creatingpost" className={styles['create__btn']}>Create Post</NavLink>
+                    <NavLink to ="/create-thread" className={styles['create__btn']}>Create Thread</NavLink>
                 </div>
 
                 <div>
